@@ -3,11 +3,11 @@ class Peashooter extends Plants{
 
 	public Peashooter(String name){
 		super(name);
-		this.lifePoints = 50;
+		this.setLifePoints(50);
 		this.damagePoints = 5;
 	}
 
 	public void shootZombie(Zombie zombie){
-		//shoot zombie
+		zombie.damageZombie(this.damagePoints);
 	}
 }

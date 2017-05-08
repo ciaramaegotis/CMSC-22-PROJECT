@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 class Player{
 	String name;
@@ -21,8 +22,20 @@ class Player{
 	}
 
 	public void choosePlant(Plants plant){
-		//check if nageexist na sa list yung plant (baka madouble)
-		this.plants.add(plant);
+		int isThere = 0;
+		Iterator<Plants> iter = (this.plants).iterator();
+		while (iter.hasNext()){
+			Plants newPlant = iter.next();
+			if (plant.getNamePlant() == newPlant.getNamePlant()){
+				isThere = 1;
+			}
+		}
+		if (isThere == 0){
+			this.plants.add(plant);
+			System.out.println("Successfully added the plant");
+		}else{
+			System.out.println("Please choose another plant.");
+		}
 	}
 
 	public void placePlant(Plants plant){
@@ -34,7 +47,6 @@ class Player{
 	}
 
 	public void getSun(int gainSun){
-		//get Sun
 		this.sunPoints += gainSun;
 	}
 
@@ -42,7 +54,7 @@ class Player{
 		if (level == 1){
 			System.out.println("[1]Sunflower\n[2]Peashooter\n>> ");
 		}else if (level == 2){
-			System.out.println("[1]Sunflower\n[2]Peashooter\n[3]Potato\n>> ");
+			System.out.println("[1]Sunflower\n[2]Peashooter\n[3]Potato\n");
 		}
 	}
 
