@@ -43,10 +43,22 @@ class Zombie implements Runnable{
 		return this.kindofZombie;
 	}
 
+	public void walk(){
+		System.out.println("I am walking....." + this.zombieID);
+		try{
+			Thread.sleep(1000);
+		}catch(Exception e){
+			
+		}
+	}
+
 	@Override
 	public void run(){
 		try{
-			System.out.println("oh may ghad");
+			while (this.lifePoints != 0){
+				this.walk();
+				Thread.sleep(1000);
+			}
 		}catch(Exception e){
 
 		}

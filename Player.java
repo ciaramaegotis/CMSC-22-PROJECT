@@ -65,4 +65,8 @@ class Player{
 	public int getLevel(){
 		return this.level;
 	}
+
+	public boolean isLife(){
+		return this.isAlive;
+	}
 }

@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 class Main{
 	public static void main(String[] args){
+		ControlPanel gameProper = new ControlPanel();
 		int choice = 4, playChoice = 0, plantChoice = 0;
 		Scanner sc = new Scanner(System.in);
 		ArrayList<Plants> playerPlants = new ArrayList<Plants>();
@@ -13,6 +14,7 @@ class Main{
 			if (choice == 1){
 				ArrayList<Mower> arrayMower = new ArrayList<Mower>();
 				Player player = new Player("ciara", new Field(arrayMower));
+				gameProper.setPlayer(player);
 				do{
 					System.out.print("[1] ADD PLANT\n[2] PROCEED TO GAME\n[0] EXIT\nChoice: ");
 					playChoice = sc.nextInt();
@@ -49,6 +51,7 @@ class Main{
 							System.out.println("You cannot proceed to the game without any plant.");
 						}else{
 							//control panel
+							gameProper.startGame();
 						}
 					}else if (playChoice == 0){
 						System.out.println("Back to the Main Menu.");
@@ -61,7 +64,6 @@ class Main{
 				System.out.println("Goodbye!");
 				//save game
 			}
-
 		}while (choice != 0);
 	}
 }
